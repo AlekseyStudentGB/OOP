@@ -1,4 +1,7 @@
-public class Unit {
+package Unts;
+
+
+public abstract class Unit implements GameInterface {
     protected String name;
 
     protected int hp;
