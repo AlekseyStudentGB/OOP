@@ -2,8 +2,8 @@ package Unts;
 
 public class Mag extends Unit {
     private int mana;
-    public Mag (String name){
-        super(name);
+    public Mag (String name, int x, int y){
+        super(name, x, y);
     }
 
     public int control(){

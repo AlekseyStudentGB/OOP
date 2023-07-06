@@ -3,8 +3,8 @@ package Unts;
 public class Peasant extends Unit {
 
 
-    public Peasant(String name) {
-        super(name);
+    public Peasant(String name, int x, int y) {
+        super(name, x, y);
     }
 
     @Override

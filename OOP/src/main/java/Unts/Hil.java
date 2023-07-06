@@ -3,8 +3,8 @@ package Unts;
 public class Hil extends Unit {
     public int mana;
 
-    public Hil (String name){
-        super(name);
+    public Hil (String name, int x, int y){
+        super(name, x, y);
 
     }
 
