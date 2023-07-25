@@ -38,7 +38,7 @@ public class Sniper extends Unit {
 
     @Override
     public String getInfo() {
-        return "Стрелок" + name +" [ hp: "+ this.hp + " | " + "пулек: "+ strela + "] " + condition;
+        return "Стрелок" + name +" [ hp: "+ this.hp + " | " + "пулек: "+ strela + "] " + condition +" ";
     }
 
     public boolean findPeasant(ArrayList<Unit> team){

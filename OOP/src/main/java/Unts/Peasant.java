@@ -23,7 +23,7 @@ public class Peasant extends Unit {
 
     @Override
     public String getInfo() {
-        return "Работяга"+ name+ " "+ condition;
+        return "Работяга"+ name+ " [" + hp + "] " + condition;
     }
     public void getDd(ArrayList<Unit>team){
 

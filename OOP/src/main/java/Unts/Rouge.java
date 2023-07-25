@@ -24,6 +24,7 @@ public class Rouge extends Unit {
                 if (min < 2) {
                     target.getDamage(dmg);
                     condition = "бил вражину";
+                    System.out.println(getInfo() + " бьет " + target.getInfo()+" и наносит "+dmg);
                     if (target.hp <= 0) {
                         target.condition = "dead";
                     }
@@ -32,9 +33,11 @@ public class Rouge extends Unit {
                         if (radarX(team, target)) {
                             if (coordinates.x - target.coordinates.x < 0) {
                                 coordinates.x += 1;
+                                System.out.println(getInfo()+ " идет на юг");
 
                             } else {
                                 coordinates.x -= 1;
+                                System.out.println(getInfo()+ " идет на север");
                             }
                             condition = "go";
                         } else condition = "Stead";
@@ -45,13 +48,18 @@ public class Rouge extends Unit {
                             if (coordinates.y < target.coordinates.y) {
                                 if (radarY(team, target)) {
                                     coordinates.y += 1;
+                                    System.out.println(getInfo()+ " идет на восток");
                                     condition = "go";
+
                                 }
                             } else {
                                 if (radarY(team, target)) {
                                     coordinates.y -= 1;
+                                    System.out.println(getInfo()+ " идет на запад");
+                                    condition = "go";
                                 }
                             }
+
                         }
                     }
                 }

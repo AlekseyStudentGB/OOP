@@ -20,7 +20,7 @@ public class Hil extends Unit {
         if(this.hp > 0 ) {
             if (this.mana > 0) {
                 minTargetHil(team);
-                System.out.println("mag" + target);
+
                 if (this.target == null) {
                     condition = "Stand";
                 } else {

@@ -21,20 +21,20 @@ public class Mag extends Unit {
     public void step(ArrayList<Unit> list,ArrayList<Unit> team) {
         if(this.hp > 0 && this.mana > 0){
             minTargetHil(team);
-            System.out.println("mag"+ target);
+
             if(this.target == null){
                 this.target = getMinPosition(list);
                 this.target.getDamage(this.dmg* -1);
                 if(target.hp<1){target.condition = "dead";}
                 mana -= 1;
-                System.out.println("dhasda"+ target);
-                System.out.println(getInfo()+" бьет "+ target.name+ " и наносит "+ dmg);
+
+                System.out.println(getInfo()+" бьет "+ target.getInfo()+ " и наносит "+ dmg);
                 condition = "shot";
             }
             else {
                 this.target.getDamage(this.dmg);
                 mana -= 2;
-                System.out.println(getInfo()+" лечит "+ target.name+ " на "+ dmg);
+                System.out.println(getInfo()+" лечит "+ target.getInfo()+ " на "+ dmg);
                 this.condition = "Helling";
             }
         }
