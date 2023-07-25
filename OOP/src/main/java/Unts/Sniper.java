@@ -17,19 +17,21 @@ public class Sniper extends Unit {
 
     @Override
     public void step(ArrayList<Unit> list,ArrayList<Unit> team) {
-        if(this.hp > 0 & strela > 0 ) {
+        if(this.hp > 0 && strela > 0 ) {
             this.target = getMinPosition(list);
-            if(this.target!=null) {
+            if(this.target!=null && target.hp > 0) {
                 target.getDamage(dmg);
                 if(target.hp<1){target.condition = "dead";}
                 this.condition = "shot";
-            }
-            System.out.println(getInfo() + target.getInfo() + " получает урон " + dmg + " оcт здоровья " + target.hp);
-            this.strela -= 1;
-            if (findPeasant(team)){
-                System.out.println(getInfo() + "после атаки зовет крестьян");
-            };
 
+                System.out.println(getInfo() + target.getInfo() + " получает урон " + dmg + " оcт здоровья " + target.hp);
+                this.strela -= 1;
+                if (findPeasant(team)) {
+                    System.out.println(getInfo() + "после атаки зовет крестьян");
+                    strela += 1;
+                }
+
+            }
         }
 
     }

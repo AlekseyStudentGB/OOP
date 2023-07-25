@@ -47,7 +47,7 @@ public abstract class Unit implements GameInterface {
                 }
             }
         }
-
+        if (list.get(index).hp == 0) return null;
         return list.get(index) ;
     }
 

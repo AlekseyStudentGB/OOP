@@ -18,43 +18,46 @@ public class Rouge extends Unit {
     public void step(ArrayList<Unit> list,ArrayList<Unit> team) {
         if(this.hp > 0) {
             target = getMinPosition(list);
-            if (min < 2) {
-                target.getDamage(dmg);
-                condition = "бил вражину";
-                if (target.hp<=0) {
-                    target.condition = "dead";
-                }
+            if (target == null){
+                condition ="stand";
             }else {
-                if (target.coordinates.x!=coordinates.x){
-                    if (radarX(team,target)) {
-                        if (coordinates.x - target.coordinates.x < 0) {
-                            coordinates.x += 1;
+                if (min < 2) {
+                    target.getDamage(dmg);
+                    condition = "бил вражину";
+                    if (target.hp <= 0) {
+                        target.condition = "dead";
+                    }
+                } else {
+                    if (target.coordinates.x != coordinates.x) {
+                        if (radarX(team, target)) {
+                            if (coordinates.x - target.coordinates.x < 0) {
+                                coordinates.x += 1;
 
-                        } else {
-                            coordinates.x -= 1;
+                            } else {
+                                coordinates.x -= 1;
+                            }
+                            condition = "go";
+                        } else condition = "Stead";
+
+
+                    } else {
+                        if (coordinates.y != target.coordinates.y) {
+                            if (coordinates.y < target.coordinates.y) {
+                                if (radarY(team, target)) {
+                                    coordinates.y += 1;
+                                    condition = "go";
+                                }
+                            } else {
+                                if (radarY(team, target)) {
+                                    coordinates.y -= 1;
+                                }
+                            }
                         }
-                        condition = "go";
-                    }else condition = "Stead";
-
-
-                }else {
-                    if (coordinates.y!= target.coordinates.y) {
-                        if (coordinates.y < target.coordinates.y) {
-                            if (radarY(team, target)) {
-                                coordinates.y += 1;
-                                condition = "go";
-                            }
-                        } else {
-                            if (radarY(team, target)) {
-                                coordinates.y -=1;
-                            }
                     }
                 }
-                }
             }
-
             }
-
+            target = null;
 
         }
 

@@ -16,9 +16,9 @@ public class Crossbowman extends Unit {
 
     @Override
     public void step(ArrayList<Unit> list,ArrayList<Unit> team) {
-        if(this.hp > 0 & strela > 0 ) {
+        if(this.hp > 0 && strela > 0 ) {
             this.target = getMinPosition(list);
-            if(this.target!=null) {
+            if(this.target!=null && target.hp > 0) {
                 target.getDamage(dmg);
                 if(target.hp<1){target.condition = "dead";}
                 this.condition = "shot";
@@ -44,8 +44,8 @@ public class Crossbowman extends Unit {
         for (int i = 0; i < team.size() ; i++) {
 
             if (team.get(i).getClass().getSimpleName() == "Peasant"
-                    & team.get(i).hp > 0
-                    & team.get(i).condition=="Stand"){
+                    && team.get(i).hp > 0
+                    && team.get(i).condition=="Stand"){
                 team.get(i).condition = "Running";
 
             } ;

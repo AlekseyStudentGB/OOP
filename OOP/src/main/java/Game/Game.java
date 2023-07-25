@@ -16,23 +16,23 @@ public class Game {
         for (int i = 0; i < 10; i++) {
             int r1 = new Random().nextInt(6);
             switch (r1){
-                case 0 -> armada.add(new Mag(getName(),1,i));
-                case 1 -> armada.add(new Hil(getName(), 1, i));
-                case 2 -> armada.add(new Rouge(getName(), 1, i));
-                case 3 -> armada.add(new Sniper(getName(), 1, i));
-                case 4 -> armada.add(new Crossbowman(getName(), 1, i));
-                case 5 -> armada.add(new Peasant(getName(), 1, i));
+                case 0 -> armada.add(new Mag(getName(),1,i+1));
+                case 1 -> armada.add(new Hil(getName(), 1, i+1));
+                case 2 -> armada.add(new Rouge(getName(), 1, i+1));
+                case 3 -> armada.add(new Sniper(getName(), 1, i+1));
+                case 4 -> armada.add(new Crossbowman(getName(), 1, i+1));
+                case 5 -> armada.add(new Peasant(getName(), 1, i+1));
             }
         }
         for (int i = 0; i < 10; i++) {
             int r1 = new Random().nextInt(6);
             switch (r1){
-                case 0 -> federation.add(new Mag(getName(),10,i));
-                case 1 -> federation.add(new Hil(getName(), 10, i));
-                case 2 -> federation.add(new Rouge(getName(), 10, i));
-                case 3 -> federation.add(new Sniper(getName(), 10, i));
-                case 4 -> federation.add(new Crossbowman(getName(), 10, i));
-                case 5 -> federation.add(new Peasant(getName(), 10, i));
+                case 0 -> federation.add(new Mag(getName(),10,i+1));
+                case 1 -> federation.add(new Hil(getName(), 10, i+1));
+                case 2 -> federation.add(new Rouge(getName(), 10, i+1));
+                case 3 -> federation.add(new Sniper(getName(), 10, i+1));
+                case 4 -> federation.add(new Crossbowman(getName(), 10, i+1));
+                case 5 -> federation.add(new Peasant(getName(), 10, i+1));
             }
         }
         round.addAll(armada);

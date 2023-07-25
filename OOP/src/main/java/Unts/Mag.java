@@ -19,7 +19,7 @@ public class Mag extends Unit {
 
     @Override
     public void step(ArrayList<Unit> list,ArrayList<Unit> team) {
-        if(this.hp > 0 & this.mana > 0){
+        if(this.hp > 0 && this.mana > 0){
             minTargetHil(team);
             System.out.println("mag"+ target);
             if(this.target == null){
@@ -38,7 +38,7 @@ public class Mag extends Unit {
                 this.condition = "Helling";
             }
         }
-        else {
+        else {if (hp>0)
             this.condition = "Stand";
         }
         this.target= null;
