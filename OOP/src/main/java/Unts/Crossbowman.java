@@ -25,12 +25,13 @@ public class Crossbowman extends Unit {
 
                 System.out.println(getInfo() + target.getInfo() + " получает урон " + dmg + " оcт здоровья " + target.hp);
                 this.strela -= 1;
+                System.out.println(findPeasant(team));
                 if (findPeasant(team)) {
                     System.out.println(getInfo() + "после атаки зовет крестьян");
-                    strela += 1;
-                }
+                    this.strela += 1;
+                }else System.out.println(getInfo()+ "крестьянина не нашел");
 
-            }
+            }else condition =  "Stand";
         }
 
     }
@@ -41,16 +42,16 @@ public class Crossbowman extends Unit {
     }
 
     public boolean findPeasant(ArrayList<Unit> team){
-        for (int i = 0; i < team.size() ; i++) {
+        for (Unit unit: team) {
 
-            if (team.get(i).getClass().getSimpleName() == "Peasant"
-                    && team.get(i).hp > 0
-                    && team.get(i).condition=="Stand"){
-                team.get(i).condition = "Running";
+            if (unit.getClass().getSimpleName().equals("Peasant")
+                    & unit.hp > 0
+                    & unit.condition =="Stand"){
+                unit.condition = "Running";
+                return true;
+            }
 
-            } ;
-            return true;
         }
-        return false;
+       return false;
     }
 }

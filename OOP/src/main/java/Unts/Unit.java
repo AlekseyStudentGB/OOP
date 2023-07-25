@@ -21,7 +21,7 @@ public abstract class Unit implements GameInterface {
         this.dmg =1;
         this.condition = "Stand";
         this.target = null;
-
+        this.min = 10;
 
         coordinates = new Coordinates(x,y);
     }

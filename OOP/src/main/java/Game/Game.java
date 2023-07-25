@@ -51,6 +51,7 @@ public class Game {
             for (Unit unit : round) {
                 if (federation.contains(unit)) {
                     unit.step(armada, federation);
+                    System.out.println(unit.getClass().getSimpleName());
                 } else {
                     unit.step(federation, armada);
                 }

@@ -24,14 +24,14 @@ public class Sniper extends Unit {
                 if(target.hp<1){target.condition = "dead";}
                 this.condition = "shot";
 
-                System.out.println(getInfo() + target.getInfo() + " получает урон " + dmg + " оcт здоровья " + target.hp);
+                System.out.println(getInfo() + target.getInfo() + " получает урон " + dmg );
                 this.strela -= 1;
                 if (findPeasant(team)) {
                     System.out.println(getInfo() + "после атаки зовет крестьян");
                     strela += 1;
-                }
+                }else System.out.println(getInfo()+"крестьянина не нашел");
 
-            }
+            }else condition =  "Stand";
         }
 
     }
@@ -44,13 +44,14 @@ public class Sniper extends Unit {
     public boolean findPeasant(ArrayList<Unit> team){
         for (int i = 0; i < team.size() ; i++) {
 
-            if (team.get(i).getClass().getSimpleName() == "Peasant"
+            if (team.get(i).getClass().getSimpleName().equals("Peasant")
                     & team.get(i).hp > 0
                     & team.get(i).condition=="Stand"){
                 team.get(i).condition = "Running";
                 this.target=team.get(i);
-            } ;
-            return true;
+                return true;
+            }
+
         }
         return false;
     }

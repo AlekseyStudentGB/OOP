@@ -17,21 +17,21 @@ public class Hil extends Unit {
 
     @Override
     public void step(ArrayList<Unit> list,ArrayList<Unit> team) {
-        if(this.hp > 0 && this.mana > 0){
-            minTargetHil(team);
-            System.out.println("mag"+ target);
-            if(this.target == null){
-                condition = "Stand";
-            }
-            else {
-                this.target.getDamage(this.dmg);
-                mana -= 2;
-                System.out.println(getInfo()+" лечит "+ target.name+ " на "+ dmg);
-                this.condition = "Helling";
-                this.target= null;
-            }
+        if(this.hp > 0 ) {
+            if (this.mana > 0) {
+                minTargetHil(team);
+                System.out.println("mag" + target);
+                if (this.target == null) {
+                    condition = "Stand";
+                } else {
+                    this.target.getDamage(this.dmg);
+                    mana -= 2;
+                    System.out.println(getInfo() + " лечит " + target.name + " на " + dmg);
+                    this.condition = "Helling";
+                    this.target = null;
+                }
+            }else condition = "Stand";
         }
-
     }
 
     @Override
