@@ -19,8 +19,12 @@ public class Crossbowman extends Unit {
         if(this.hp > 0 && strela > 0 ) {
             this.target = getMinPosition(list);
             if(this.target!=null && target.hp > 0) {
+
                 target.getDamage(dmg);
-                if(target.hp<1){target.condition = "dead";}
+
+                if(target.hp < 1){
+                    target.condition = "dead";
+                }
                 this.condition = "shot";
 
                 System.out.println(getInfo() + target.getInfo() + " получает урон " + dmg + " оcт здоровья " + target.hp);
